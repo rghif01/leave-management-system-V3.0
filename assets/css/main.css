@@ -1,0 +1,122 @@
+/* APM Leave Management - Main Stylesheet */
+
+:root {
+    --primary: #1a3c6e;
+    --primary-light: #2563a8;
+    --secondary: #e8f0fe;
+    --accent: #f59e0b;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --info: #3b82f6;
+    --dark: #1e293b;
+    --sidebar-w: 250px;
+}
+
+/* Global */
+body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f1f5f9; }
+.bg-primary-custom { background: var(--primary) !important; }
+
+/* Avatar */
+.avatar-sm {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--accent); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+}
+.avatar-lg {
+    width: 60px; height: 60px; border-radius: 50%;
+    background: var(--primary-light); color: white;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 22px; font-weight: 700;
+}
+
+/* Cards */
+.card { border: none; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-radius: 12px; }
+.card-header { border-radius: 12px 12px 0 0 !important; border-bottom: 1px solid rgba(0,0,0,0.08); }
+
+/* Stat Cards */
+.stat-card { transition: transform 0.2s; cursor: default; }
+.stat-card:hover { transform: translateY(-2px); }
+.stat-icon { width: 52px; height: 52px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px; }
+
+/* Navbar */
+.navbar-dark.bg-primary-custom { padding: 0.6rem 1rem; }
+.navbar-brand { font-size: 1.1rem; }
+
+/* Sidebar */
+.sidebar { width: var(--sidebar-w); min-height: 100vh; background: var(--dark); }
+.sidebar .nav-link { color: rgba(255,255,255,0.75); padding: 0.6rem 1rem; border-radius: 8px; margin: 2px 8px; }
+.sidebar .nav-link:hover, .sidebar .nav-link.active { color: white; background: rgba(255,255,255,0.1); }
+.sidebar .nav-link i { width: 20px; text-align: center; }
+
+/* Tables */
+.table-hover tbody tr:hover { background: var(--secondary); }
+.table th { font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Forms */
+.form-control:focus, .form-select:focus { border-color: var(--primary-light); box-shadow: 0 0 0 0.2rem rgba(37,99,168,0.15); }
+
+/* Badges */
+.badge { font-size: 0.78rem; font-weight: 600; }
+
+/* Calendar Color Indicators */
+.fc-day-green { background: rgba(16,185,129,0.1) !important; }
+.fc-day-orange { background: rgba(245,158,11,0.15) !important; }
+.fc-day-red { background: rgba(239,68,68,0.15) !important; }
+
+/* Leave Status Timeline */
+.timeline { position: relative; }
+.timeline-item { padding-left: 2rem; border-left: 2px solid #e2e8f0; margin-bottom: 1.5rem; position: relative; }
+.timeline-item::before { content:''; position: absolute; left: -6px; top: 4px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); }
+.timeline-item.success::before { background: var(--success); }
+.timeline-item.danger::before { background: var(--danger); }
+
+/* Progress bar for leave balance */
+.leave-progress .progress { height: 10px; border-radius: 5px; }
+.balance-card .card-body { padding: 1.2rem; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stat-card .card-body { padding: 1rem; }
+    .stat-icon { width: 40px; height: 40px; font-size: 18px; }
+    .table-responsive { font-size: 0.85rem; }
+    h4, h5 { font-size: 1rem; }
+}
+
+/* Print */
+@media print {
+    .navbar, .sidebar, .btn, footer, .no-print { display: none !important; }
+    .card { box-shadow: none; border: 1px solid #ddd; }
+    body { background: white; }
+}
+
+/* Loading Spinner */
+.spinner-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.8); display: flex; align-items: center; justify-content: center; z-index: 9999; display: none; }
+
+/* Leave type colors */
+.leave-annual { border-left: 4px solid #10b981; }
+.leave-holiday { border-left: 4px solid #6366f1; }
+.leave-medical { border-left: 4px solid #ef4444; }
+.leave-emergency { border-left: 4px solid #f59e0b; }
+.leave-other { border-left: 4px solid #94a3b8; }
+
+/* Notification dot */
+.notification-unread { background: #fef3c7; }
+
+/* Footer */
+footer { background: var(--dark) !important; }
+
+/* Shift badges */
+.shift-morning { background: #fef3c7; color: #92400e; }
+.shift-afternoon { background: #dbeafe; color: #1e40af; }
+.shift-night { background: #e9d5ff; color: #6b21a8; }
+.shift-off { background: #f3f4f6; color: #4b5563; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #94a3b8; border-radius: 3px; }
+
+/* PWA install button */
+#pwaInstall { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
